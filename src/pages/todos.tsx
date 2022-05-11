@@ -41,7 +41,7 @@ const Home: NextPage<Props> = ({ todos }) => {
       <Head>
         <title>Todos | Desafio EWZ - Cipriano</title>
         <meta name="description" content="Projeto desenvolvido por Samuel Cipriano" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
 
