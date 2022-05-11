@@ -12,18 +12,18 @@ type Props = {
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const { data: todos } = await axios.get('/todos')
-  const { data: users } = await axios.get('/users')
 
-  if (!todos || !users) {
+  if (!todos) {
     return {
       notFound: true,
     }
   }
 
-  todos.map((todo: ITodo) => {
-    const author = users.find((user: IUsers) => user.id === todo.userId)
-    todo.author = author?.name
+  todos.length = 15
 
+  todos.map(async (todo: ITodo) => {
+    const author = await axios.get(`/users/${todo.userId}`) as IUsers
+    todo.author = author?.name
     return todo
   })
 
@@ -45,12 +45,12 @@ const Home: NextPage<Props> = ({ todos }) => {
       </Head>
 
 
-      <Stack gap={6} pt={{ sm: 8, lg: 24 }} px={4}>
+      <Stack gap={6} pt={{ sm: 8, lg: 24 }} px={{ base: 2, md: 4 }}>
         <Heading textAlign='start'>Todos os todos</Heading>
 
         <Grid
           templateColumns={{ sm: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(4, 1fr)', }}
-          maxW={{ sm: 'xl', md: '2xl', lg: '4xl', xl: '7xl' }}
+          maxW={{ sm: 'lg', md: 'xl', lg: '4xl', xl: '7xl' }}
           gap={4}
         >
           {todos.map(todo => (
