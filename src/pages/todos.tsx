@@ -12,8 +12,9 @@ type Props = {
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const { data: todos } = await axios.get('/todos')
+  const { data: users } = await axios.get('/users')
 
-  if (!todos) {
+  if (!todos || !users) {
     return {
       notFound: true,
     }
@@ -21,9 +22,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 
   todos.length = 15
 
-  todos.map(async (todo: ITodo) => {
-    const author = await axios.get(`/users/${todo.userId}`) as IUsers
+  todos.map((todo: ITodo) => {
+    const author = users.find((user: IUsers) => user.id === todo.userId)
     todo.author = author?.name
+
     return todo
   })
 
