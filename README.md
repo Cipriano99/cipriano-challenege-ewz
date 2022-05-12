@@ -1,34 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![App Screenshot](.github/cover.png)
 
-## Getting Started
+# TodoTest
 
-First, run the development server:
+Desafio de código - processo seletivo EWZ - Mundo Invest  
+Você pode acessar em [TodoTest - Cipriano](https://cipriano-challenge-ewz.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Tecnologias utilizadas
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [NextJS](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Chakra UI](https://chakra-ui.com/)
+- [Axios](https://axios-http.com/)
+- [{JSON} Placeholder](https://jsonplaceholder.typicode.com/)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Funcionalidades
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Página Todos _/todos_
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Lista os 15 primeiros os Todos do end-point **/todos** da _free fake api_ [{JSON} Placeholder](https://jsonplaceholder.typicode.com/)
+- Apresenta um indicativo visual com a cor azul caso a atividade ainda não foi finalizada e a cor verde caso a atividade já foi concluida.
+- Exibe título da atividade e seus respectivos responsáveis.
 
-## Learn More
+### Página Usuários _/usuarios_
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Lista todos os usuários cadastrados do end-point **/users** da _free fake api_ [{JSON} Placeholder](https://jsonplaceholder.typicode.com/)
+- Exibe informações básicas como: nome, email, telefone, website, rua e cidade.
